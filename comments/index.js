@@ -8,7 +8,7 @@ app.use(bodyParser.json())
 const cors = require("cors")
 app.use(cors())
 
-// temp post storing
+// temp comment storing
 const commentsByPostId = {}
 
 

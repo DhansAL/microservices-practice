@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { CommentCreate } from "./CommentCreate";
+import { Commentlist } from "./Commentlist";
 
 export const PostList = () => {
   const [posts, setPosts] = useState({});
@@ -22,6 +24,12 @@ export const PostList = () => {
       >
         <div className="card-body">
           <h3>{post.title}</h3>
+          <Commentlist postId={post.id} />
+          {/* this will x no. of get requests which will be a problem for our server */}
+          {/* because the 1 post will make a give comments call to a 2nd server i.e 
+          our comments service. so if there were 10 posts , they will be needing 10 get requests per load 
+          which is more or less spamming our server. so we will introduce async communication to our services --from next commit */}
+          <CommentCreate postId={post.id} />
         </div>
       </div>
     );
