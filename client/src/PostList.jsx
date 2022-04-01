@@ -7,7 +7,8 @@ export const PostList = () => {
   const [posts, setPosts] = useState({});
 
   const fetchPosts = async () => {
-    const res = await axios.get("http://localhost:4000/posts");
+    const res = await axios.get("http://localhost:4002/posts");
+    console.log(res.data);
     setPosts(res.data);
   };
 
@@ -24,7 +25,7 @@ export const PostList = () => {
       >
         <div className="card-body">
           <h3>{post.title}</h3>
-          <Commentlist postId={post.id} />
+          <Commentlist comments={post.comments} />
           {/* this will x no. of get requests which will be a problem for our server */}
           {/* because the 1 post will make a give comments call to a 2nd server i.e 
           our comments service. so if there were 10 posts , they will be needing 10 get requests per load 
