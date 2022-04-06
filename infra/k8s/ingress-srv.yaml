@@ -16,3 +16,4 @@ spec:
                 name: posts-clusterip-srv
                 port:
                   number: 4000
+                  # C:\Windows\System32\drivers\etc
