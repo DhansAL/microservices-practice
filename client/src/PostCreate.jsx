@@ -6,7 +6,8 @@ export const PostCreate = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await Axios.post("http://localhost:4000/posts", {
+    // /create for diffing bw all routes for ingress cuz he stupid and knows only /posts is matching with other reqs
+    await Axios.post("http://posts.com/posts/create", {
       title,
     });
     setTitle("");
